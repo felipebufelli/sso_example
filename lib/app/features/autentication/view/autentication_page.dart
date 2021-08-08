@@ -42,12 +42,6 @@ class _AutenticationPageState extends State<AutenticationPage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              ElevatedButton(
-                onPressed: () async {
-                  await autenticationController.authenticate();
-                },
-                child: Text("Login with SSO"),
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: 32,
@@ -69,10 +63,17 @@ class _AutenticationPageState extends State<AutenticationPage> {
                   child: CircularProgressIndicator(),
                 ),
               ],
+              ElevatedButton(
+                onPressed: () async {
+                  await autenticationController.authenticate();
+                },
+                child: Text("Concluir"),
+              ),
               if (autenticationController.state ==
                   AutenticationState.error) ...[
                 Text(autenticationController.errorMsg),
               ],
+              
             ],
           ),
         ),
